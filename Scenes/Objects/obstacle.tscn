@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://riqwm8rlj2df" path="res://Audio/PlayerAudio/SUPERNOVA.mp3" id="3_aivmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_070ww"]
-radius = 73.2462
+radius = 83.2166
 
 [node name="Obstacle" type="Area2D"]
 position = Vector2(11, -6)
@@ -15,7 +15,7 @@ script = ExtResource("1_bm785")
 texture = ExtResource("2_py1w7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, 6)
+position = Vector2(-5, 7)
 shape = SubResource("CircleShape2D_070ww")
 
 [node name="SUPERNOVA" type="AudioStreamPlayer2D" parent="."]

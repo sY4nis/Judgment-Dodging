@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgc61a0gpdafo"]
+
+[ext_resource type="Texture2D" uid="uid://c4rwef8auv7bi" path="res://Sprites/Objects/Star.png" id="1_er3ky"]
+[ext_resource type="Script" path="res://Scripts/star.gd" id="1_x5xnm"]
+[ext_resource type="Texture2D" uid="uid://cpw8ys2l0fvkl" path="res://Sprites/Objects/Star2.png" id="2_2xxw5"]
+[ext_resource type="AudioStream" uid="uid://bvexacjaragfk" path="res://Audio/PlayerAudio/UNDERTALE.mp3" id="4_ieyt3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjq46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_er3ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2xxw5")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8ruc"]
+radius = 88.0057
+
+[node name="Star" type="Area2D"]
+script = ExtResource("1_x5xnm")
+
+[node name="Etoile" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -4)
+sprite_frames = SubResource("SpriteFrames_hjq46")
+animation = &"IDLE"
+frame_progress = 0.39395
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r8ruc")
+
+[node name="UNDERTALE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ieyt3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
