@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b08h72hik4xci"]
+
+[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_bm785"]
+[ext_resource type="Texture2D" uid="uid://dms2ro1nfblp4" path="res://Sprites/Objects/Asteroids.png" id="2_py1w7"]
+[ext_resource type="AudioStream" uid="uid://riqwm8rlj2df" path="res://Audio/PlayerAudio/SUPERNOVA.mp3" id="3_aivmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_070ww"]
+radius = 73.2462
+
+[node name="Obstacle" type="Area2D"]
+position = Vector2(11, -6)
+script = ExtResource("1_bm785")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_py1w7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 6)
+shape = SubResource("CircleShape2D_070ww")
+
+[node name="SUPERNOVA" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_aivmx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
