@@ -32,7 +32,6 @@ func _on_body_entered(body):
 		Rock.visible = false
 		await Supernova.finished
 		queue_free()
-
 func _process(delta):
 	position += velocity * speed * delta
 
