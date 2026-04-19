@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfm1honcstrm2"]
+[gd_scene load_steps=5 format=3 uid="uid://dfm1honcstrm2"]
 
 [ext_resource type="PackedScene" uid="uid://inlr2p8ve8y5" path="res://Scenes/Characters/lurgatoir.tscn" id="1_ssfk6"]
 [ext_resource type="Texture2D" uid="uid://yq3yegc8fwri" path="res://Sprites/Player/Lurgatoir/Lurgatoir_Focus.png" id="2_801gy"]
+[ext_resource type="PackedScene" uid="uid://b08h72hik4xci" path="res://Scenes/Objects/obstacle.tscn" id="2_qqh8t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s457w"]
 radius = 103.479
@@ -20,3 +21,6 @@ shape = SubResource("CircleShape2D_s457w")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(9, -32)
 texture = ExtResource("2_801gy")
+
+[node name="Obstacle" parent="." instance=ExtResource("2_qqh8t")]
+position = Vector2(702, 241)

@@ -36,7 +36,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xshkk"]
 radius = 34.0
 
-[node name="Lurgatoir" type="CharacterBody2D"]
+[node name="Lurgatoir" type="CharacterBody2D" groups=["Players"]]
 position = Vector2(451, 267)
 script = ExtResource("1_181oj")
 
