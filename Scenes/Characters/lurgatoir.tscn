@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://inlr2p8ve8y5"]
+
+[ext_resource type="Script" path="res://Scripts/lurgatoir.gd" id="1_181oj"]
+[ext_resource type="Texture2D" uid="uid://dyjk85ymmcmsh" path="res://Sprites/Player/Lurgatoir/Lurgatoir.png" id="1_jjqaw"]
+[ext_resource type="Texture2D" uid="uid://nckkgoyujm0o" path="res://Sprites/Player/Lurgatoir/Lurgatoir2.png" id="2_4qcg2"]
+[ext_resource type="Texture2D" uid="uid://yq3yegc8fwri" path="res://Sprites/Player/Lurgatoir/Lurgatoir_Focus.png" id="2_unhe0"]
+[ext_resource type="Texture2D" uid="uid://bcgadr20mwjoq" path="res://Sprites/Player/Lurgatoir/Lurgatoir_Focus2.png" id="3_r14qd"]
+[ext_resource type="AudioStream" uid="uid://cjvd4aml6uun7" path="res://Audio/PlayerAudio/BetterKirbystar.mp3" id="4_xtkm1"]
+[ext_resource type="AudioStream" uid="uid://bhjm1r34vn5au" path="res://Audio/PlayerAudio/HEARTATTACK.mp3" id="7_irp3u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g18bl"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("2_unhe0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_r14qd")
+}],
+"loop": true,
+"name": &"LUR_FOCUS",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jjqaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4qcg2")
+}],
+"loop": true,
+"name": &"LUR_IDLE",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xshkk"]
+radius = 34.0
+
+[node name="Lurgatoir" type="CharacterBody2D"]
+position = Vector2(451, 267)
+script = ExtResource("1_181oj")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -8)
+scale = Vector2(0.455, 0.455)
+sprite_frames = SubResource("SpriteFrames_g18bl")
+animation = &"LUR_IDLE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+scale = Vector2(1.21, 1.21)
+shape = SubResource("CircleShape2D_xshkk")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="STARWINKLE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xtkm1")
+pitch_scale = 1.27
+
+[node name="HEART" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_irp3u")
+volume_db = 9.695
