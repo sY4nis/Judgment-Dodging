@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_070ww"]
 radius = 83.2166
 
-[node name="Obstacle" type="Area2D"]
+[node name="Obstacle" type="Area2D" groups=["obstacles"]]
 position = Vector2(11, -6)
 script = ExtResource("1_bm785")
 

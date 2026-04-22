@@ -11,7 +11,7 @@ extends Area2D
 @onready var size = randf_range(0.5, 2.0)
 @onready var Rock = $Sprite
 @onready var Hitbox = $CollisionShape2D
-
+@onready var explode = false
 
 func shake():
 	var tween = create_tween()
@@ -21,17 +21,20 @@ func shake():
 		tween.tween_property(self, "position", original_pos, 0.05)
 	return tween
 
-func _on_body_entered(body):
-	
-	if body.is_in_group("Players"):
+func explosion():
+		explode = true
 		var t = shake()
-		
 		collision.disabled = true
 		Supernova.play()
 		await t.finished
 		Rock.visible = false
 		await Supernova.finished
 		queue_free()
+	
+func _on_body_entered(body):
+	if body.is_in_group("Players") and not explode:
+		explosion()
+	
 func _process(delta):
 	position += velocity * speed * delta
 

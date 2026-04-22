@@ -61,8 +61,8 @@ func _physics_process(delta):
 	
 	get_input()
 	update_anim()
-	position.x = clamp(position.x, 0, screen_width)
-	position.y = clamp(position.y, 0, screen_height)
+	#position.x = clamp(position.x, 0, screen_width)
+	#position.y = clamp(position.y, 0, screen_height)
 	move_and_slide()
 
 func _ready() -> void : 
