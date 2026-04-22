@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Players") and not taken:
 		taken = true
 		get_parent().stars += 1
+		get_parent().update_ui()
 		UNDERTALE.play()
 		Etoile.visible = false
 		collision.disabled = true

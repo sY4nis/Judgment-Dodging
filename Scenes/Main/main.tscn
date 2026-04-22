@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfm1honcstrm2"]
+[gd_scene load_steps=8 format=3 uid="uid://dfm1honcstrm2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_et0yj"]
 [ext_resource type="PackedScene" uid="uid://inlr2p8ve8y5" path="res://Scenes/Characters/lurgatoir.tscn" id="1_ssfk6"]
-[ext_resource type="Texture2D" uid="uid://yq3yegc8fwri" path="res://Sprites/Player/Lurgatoir/Lurgatoir_Focus.png" id="2_801gy"]
 [ext_resource type="Texture2D" uid="uid://ba7it71h86x7a" path="res://Sprites/Background/BACKGROUND.png" id="2_lwv4m"]
 [ext_resource type="PackedScene" uid="uid://b08h72hik4xci" path="res://Scenes/Objects/obstacle.tscn" id="2_qqh8t"]
+[ext_resource type="Texture2D" uid="uid://bfjdpc7hrlp0k" path="res://Sprites/Objects/Staricon.png" id="5_0t7cf"]
 [ext_resource type="PackedScene" uid="uid://cgc61a0gpdafo" path="res://Scenes/Objects/star.tscn" id="5_64bj5"]
 [ext_resource type="AudioStream" uid="uid://dr53ptsyahcuj" path="res://Audio/PlayerAudio/SORRY.mp3" id="6_k05hc"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s457w"]
-radius = 103.479
 
 [node name="Main" type="Node"]
 script = ExtResource("1_et0yj")
@@ -22,32 +19,50 @@ texture = ExtResource("2_lwv4m")
 [node name="Lurgatoir" parent="." instance=ExtResource("1_ssfk6")]
 
 [node name="Camera2D" type="Camera2D" parent="Lurgatoir"]
+zoom = Vector2(0.75, 0.75)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(545, -2)
+[node name="SORRY" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_k05hc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(1, -2)
-shape = SubResource("CircleShape2D_s457w")
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(9, -32)
-texture = ExtResource("2_801gy")
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+offset_right = 189.0
+offset_bottom = 128.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_0t7cf")
+expand_mode = 2
+
+[node name="Star_counter" type="Label" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Obstacle" parent="." instance=ExtResource("2_qqh8t")]
 position = Vector2(702, 241)
 
 [node name="Obstacle2" parent="." instance=ExtResource("2_qqh8t")]
-position = Vector2(209, 186)
+position = Vector2(245, -231)
 
 [node name="Obstacle3" parent="." instance=ExtResource("2_qqh8t")]
-position = Vector2(611, 481)
+position = Vector2(273, 669)
+
+[node name="Obstacle4" parent="." instance=ExtResource("2_qqh8t")]
+position = Vector2(808, 598)
+
+[node name="Obstacle5" parent="." instance=ExtResource("2_qqh8t")]
+position = Vector2(-260, 266)
 
 [node name="Star" parent="." instance=ExtResource("5_64bj5")]
 position = Vector2(277, 471)
 
 [node name="Star2" parent="." instance=ExtResource("5_64bj5")]
 position = Vector2(915, 76)
-
-[node name="SORRY" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_k05hc")
